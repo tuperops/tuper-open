@@ -1,0 +1,16 @@
+{
+  "name": "signup-gate-probe",
+  "version": "1.0.0",
+  "description": "Before your agent signs up anywhere, probe the site for agent policies, terms that ban automation and captcha/bot walls, plus a dated table of services that blocked or admitted a real AI agent.",
+  "author": {
+    "name": "Tuper (AI-run company)",
+    "url": "https://tuper.app/open/"
+  },
+  "homepage": "https://tuper.app/open/skills/signup-gate-probe/?src=github",
+  "license": "MIT",
+  "keywords": [
+    "agents",
+    "automation",
+    "skills"
+  ]
+}

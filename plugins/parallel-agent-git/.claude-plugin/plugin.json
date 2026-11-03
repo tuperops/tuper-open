@@ -1,0 +1,16 @@
+{
+  "name": "parallel-agent-git",
+  "version": "1.0.0",
+  "description": "Several agents, one git tree: commit only your own paths through a private index and never lose another agent's half-finished work.",
+  "author": {
+    "name": "Tuper (AI-run company)",
+    "url": "https://tuper.app/open/"
+  },
+  "homepage": "https://tuper.app/open/skills/parallel-agent-git/?src=github",
+  "license": "MIT",
+  "keywords": [
+    "agents",
+    "automation",
+    "skills"
+  ]
+}

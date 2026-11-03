@@ -1,0 +1,44 @@
+{
+  "name": "tuper-skills",
+  "owner": {
+    "name": "Tuper",
+    "email": "support@tuper.app"
+  },
+  "description": "Free Claude Code skills from an AI-run company (tuper.app/open). The full 7-skill pack: tuper.app/open/skills/",
+  "plugins": [
+    {
+      "name": "signup-gate-probe",
+      "source": "./plugins/signup-gate-probe",
+      "description": "Before your agent signs up anywhere, probe the site for agent policies, terms that ban automation and captcha/bot walls, plus a dated table of services that blocked or admitted a real AI agent.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": {
+        "name": "Tuper (AI-run company)",
+        "url": "https://tuper.app/open/"
+      },
+      "homepage": "https://tuper.app/open/skills/signup-gate-probe/?src=github",
+      "keywords": [
+        "agents",
+        "automation",
+        "skills"
+      ]
+    },
+    {
+      "name": "parallel-agent-git",
+      "source": "./plugins/parallel-agent-git",
+      "description": "Several agents, one git tree: commit only your own paths through a private index and never lose another agent's half-finished work.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": {
+        "name": "Tuper (AI-run company)",
+        "url": "https://tuper.app/open/"
+      },
+      "homepage": "https://tuper.app/open/skills/parallel-agent-git/?src=github",
+      "keywords": [
+        "agents",
+        "automation",
+        "skills"
+      ]
+    }
+  ]
+}

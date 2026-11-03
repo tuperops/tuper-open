@@ -1,0 +1,765 @@
+{
+ "title": "Which sign-ups and sites work for an AI agent (tested Nov 2026)",
+ "publisher": "Tuper (tuper.app)",
+ "license": "CC BY 4.0",
+ "source": "https://tuper.app/open/agent-access/",
+ "rows": 58,
+ "services": [
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Google account sign-in",
+   "what_we_tried": "Sign in as our own Google account in our headless browser",
+   "result_key": "rejected",
+   "result": "Browser rejected",
+   "agent_alone": false,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "Right after the email step: 'This browser or app may not be secure'. A person creates one OAuth token on a real machine; after that everything runs on Google APIs.",
+   "rules": [
+    33,
+    71
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Microsoft account",
+   "what_we_tried": "Email sign-up (for Bing Webmaster Tools), two addresses",
+   "result_key": "rejected",
+   "result": "Browser rejected",
+   "agent_alone": false,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "'Account creation has been blocked' at the final step, no captcha offered. Nothing worked; we dropped Bing Webmaster Tools.",
+   "rules": [
+    72
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Slack",
+   "what_we_tried": "Workspace sign-up at slack.com/get-started",
+   "result_key": "captcha",
+   "result": "Picture captcha",
+   "agent_alone": false,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "reCAPTCHA picture test after the email step. The owner made the workspace and app; the app runs on its client id, secret and signing secret.",
+   "rules": [
+    17
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Discord",
+   "what_we_tried": "Account sign-up at discord.com/register",
+   "result_key": "captcha",
+   "result": "Picture captcha",
+   "agent_alone": false,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "hCaptcha picture test. The owner registered on the phone app; our bot runs on its bot token and never logs in as a user.",
+   "rules": [
+    14,
+    46
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Shopify Partners",
+   "what_we_tried": "Partner sign-up, later the store admin",
+   "result_key": "cloudflare",
+   "result": "Cloudflare block",
+   "agent_alone": false,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "Both answered our browser with Cloudflare 403. The owner opened the account; we use the Admin API, the CLI with a service token, and the public App Store pages.",
+   "rules": [
+    23,
+    31,
+    47
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Polar (payments)",
+   "what_we_tried": "Email login on polar.sh and its sandbox, 3 tries",
+   "result_key": "turnstile",
+   "result": "Invisible check fails",
+   "agent_alone": false,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "Cloudflare Turnstile said 'Verification failed'. The owner signed in once and made an organization access token; all our Polar work is API-only.",
+   "rules": [
+    11,
+    13,
+    25
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Brevo (email)",
+   "what_we_tried": "Account sign-up, then API key creation",
+   "result_key": "phone",
+   "result": "Phone check",
+   "agent_alone": false,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "Sign-up itself worked. Keys need an SMS check, and the SMS and voice call never reached our business line (3 sends). Login later failed an invisible check.",
+   "rules": [
+    11
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Resend (email)",
+   "what_we_tried": "Account sign-up, 2 tries",
+   "result_key": "rejected",
+   "result": "Browser rejected",
+   "agent_alone": false,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "Kasada bot protection returned a generic server error. We used another email provider instead.",
+   "rules": [
+    4
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "SMTP2GO (email)",
+   "what_we_tried": "Account sign-up and API key",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "No captcha, no SMS check. It sends our replies to customers who write to support.",
+   "rules": [
+    121
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Mailtrap (email)",
+   "what_we_tried": "Account sign-up",
+   "result_key": "captcha",
+   "result": "Picture captcha",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "reCAPTCHA picture test. Not used.",
+   "rules": [
+    61
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Forward Email",
+   "what_we_tried": "Account registration at forwardemail.net/register",
+   "result_key": "turnstile",
+   "result": "Invisible check fails",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Turnstile failed. Inbound forwarding still works with no account at all (configured by DNS records only).",
+   "rules": [
+    10,
+    61
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Firefox / Mozilla account",
+   "what_we_tried": "Account sign-up (for add-on publishing)",
+   "result_key": "captcha",
+   "result": "Picture captcha",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "'Client Challenge' picture captcha. Batched for the owner; the add-on API can do the rest once a key exists.",
+   "rules": [
+    110
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Apify",
+   "what_we_tried": "Email and password sign-up at console.apify.com",
+   "result_key": "captcha",
+   "result": "Picture captcha",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "reCAPTCHA picture test after 'Sign up' (one try). Account goes to the owner; we will work by API token. Its Store search API needs no login at all.",
+   "rules": []
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Bluesky",
+   "what_we_tried": "Sign-up in the browser, then createAccount on the API",
+   "result_key": "phone",
+   "result": "Phone check",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "The browser ends in an hCaptcha; the API answers InvalidPhoneVerification. Waiting on the owner. Posting later runs on an app password.",
+   "rules": []
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "X",
+   "what_we_tried": "Sign-up flow at x.com/i/flow/signup",
+   "result_key": "rejected",
+   "result": "Browser rejected",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "The sign-up page fails to load in our browser. Waiting on the owner.",
+   "rules": []
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "GOV.UK One Login",
+   "what_we_tried": "Sign-up for the Companies House developer hub",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "No captcha. Email codes arrive by mail, and it offers 'Authenticator app' instead of a UK phone, so the agent keeps the secret and makes its own codes.",
+   "rules": []
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Companies House API",
+   "what_we_tried": "Developer application and REST key, after GOV.UK One Login",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Live application and key created by the agent, no person needed.",
+   "rules": []
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "OpenAlex API key",
+   "what_we_tried": "Key request, then the emailed activation link",
+   "result_key": "cloudflare",
+   "result": "Cloudflare block",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "The request worked, but the activation link is behind a Cloudflare challenge for curl and our browser. The key stays inactive.",
+   "rules": [
+    136
+   ]
+  },
+  {
+   "group": "Accounts and sign-ups",
+   "service": "Business phone SMS",
+   "what_we_tried": "Codes from Google and others to a forwarded phone line",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "Some senders' texts arrive (Google's did); Brevo's never did. Try once, then hand the check to a person.",
+   "rules": []
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "TinyLaunch",
+   "what_we_tried": "Free launch via its agent API (email one-time code)",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Published agent guide (/llms.txt, /.well-known/agents.json). Maker, startup and free launch date all created by the agent.",
+   "rules": [
+    53
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Launchdog",
+   "what_we_tried": "Free launch via its MCP server (OAuth + email magic link)",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Built for agents. OAuth callback had to use http://localhost, not 127.0.0.1. One free launch per account every 30 days.",
+   "rules": [
+    57,
+    83
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "PeerPush",
+   "what_we_tried": "Listing via its public MCP tool",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Created with no key; the free queue is about 3 months long.",
+   "rules": [
+    57
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Launchator",
+   "what_we_tried": "Listings via MCP",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Published the same day. Limit: 3 products per account.",
+   "rules": [
+    107,
+    111
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Altimateguide",
+   "what_we_tried": "Submissions via its agent API",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Accepted for review. One pending submission per domain.",
+   "rules": [
+    107,
+    112
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "saaspa.ge",
+   "what_we_tried": "Launch submission with an agent API key",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Pending review; 5 submissions per 24 hours.",
+   "rules": []
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Crozdesk",
+   "what_we_tried": "Free vendor application, email magic link",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "One vendor account holds several products. Decline the ad upsell (it defaults to a $200/month budget).",
+   "rules": [
+    67
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "alternative.me",
+   "what_we_tried": "Account and listings in our browser",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Pending approval. The long description silently cuts at 1000 characters.",
+   "rules": [
+    105
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "BetaList",
+   "what_we_tried": "Agent API draft, then the claim page",
+   "result_key": "turnstile",
+   "result": "Invisible check fails",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "The Agent API did the whole draft. The claim page shows a Turnstile 'Making sure you're human' check (2 tries), and it is paid, so a person claims and pays.",
+   "rules": [
+    30,
+    49,
+    108
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "SaaSCity",
+   "what_we_tried": "Draft via its MCP, then the claim",
+   "result_key": "google",
+   "result": "Google-only sign-in",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Draft and badge check worked by MCP; the claim sign-in is Google only. A person claims.",
+   "rules": [
+    91
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Noonlaunch",
+   "what_we_tried": "Draft via its MCP, then the claim",
+   "result_key": "google",
+   "result": "Google-only sign-in",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Drafts worked; claim is 'Continue with Google' only. A person claims and pays.",
+   "rules": [
+    91
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Neeed",
+   "what_we_tried": "MCP draft, then the email sign-in code",
+   "result_key": "turnstile",
+   "result": "Invisible check fails",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Draft worked; sign-in answered 'Couldn't verify you're human' twice.",
+   "rules": [
+    57
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Tiny Startups",
+   "what_we_tried": "Email-link sign-in and submit form",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Sign-in and submit worked, but the free listing stays noindex and \"not live\" unless you pay for instant listing.",
+   "rules": [
+    83
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Launch Llama tools",
+   "what_we_tried": "Draft via its REST API",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Worked after reading the schema; 4 drafts per window, and our trial-and-error burned them.",
+   "rules": [
+    133
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "AgentMRR",
+   "what_we_tried": "Submission via its API",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Draft created; it publishes only with a read-only revenue token, which only a person can make in the payment dashboard.",
+   "rules": []
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "submitby.ai",
+   "what_we_tried": "Listing via its REST API (no account)",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Draft, badge on our page, verify: published in about 30 seconds. The listing stays noindex until the listing is complete and the owner reviews it; tag names must match its list.",
+   "rules": [
+    83
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "aiagents.directory",
+   "what_we_tried": "Plain submit form (email, name, URL, description), no captcha",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "The form accepted the post. It reviews by hand, so we do not call it listed until the public page exists.",
+   "rules": [
+    83
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Uneed",
+   "what_we_tried": "Read the terms before signing up",
+   "result_key": "tos",
+   "result": "Terms ban agents",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Terms ban 'any automated use of the system'. Not used.",
+   "rules": [
+    30
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "StartupBase",
+   "what_we_tried": "Read /ai.txt before signing up",
+   "result_key": "tos",
+   "result": "Terms ban agents",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Its ai.txt tells AI agents not to submit forms or create accounts. Not used.",
+   "rules": [
+    53
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Microlaunch, Launching Next, Peerlist, SideProjectors",
+   "what_we_tried": "Open the site",
+   "result_key": "cloudflare",
+   "result": "Cloudflare block",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "'Just a moment' for both curl and our browser. Not retried.",
+   "rules": [
+    53
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "SaaSHub",
+   "what_we_tried": "Free submit form",
+   "result_key": "person",
+   "result": "Needs a person",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Rejected our contact email ('Contact email - is invalid', 422).",
+   "rules": [
+    29
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Capterra, GetApp, G2, SourceForge",
+   "what_we_tried": "Vendor listing pages",
+   "result_key": "cloudflare",
+   "result": "Cloudflare block",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Cloudflare or bot checks for curl and our browser. SaaSworthy is a reCAPTCHA sales form.",
+   "rules": [
+    67
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "top.gg, discordbotlist, discords.com",
+   "what_we_tried": "Discord bot lists",
+   "result_key": "person",
+   "result": "Needs a person",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "top.gg is behind Cloudflare; all three log in only with Discord as a user (we never script a user account); discords.com's terms ban non-human access. A person submits.",
+   "rules": [
+    8,
+    46
+   ]
+  },
+  {
+   "group": "Launch sites and directories",
+   "service": "Fazier, DiscoverLaunches",
+   "what_we_tried": "Account sign-up",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Accounts worked; the free launch needs comments or upvotes on other products, which we do not write.",
+   "rules": [
+    53,
+    107
+   ]
+  },
+  {
+   "group": "Communities and reading",
+   "service": "Reddit",
+   "what_we_tried": "Read and post",
+   "result_key": "cloudflare",
+   "result": "Cloudflare block",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Our server gets 403 'blocked by network security'. Reading works through Wayback Machine copies (use the CDX index). Posts only by a person, in their own words.",
+   "rules": [
+    29,
+    93
+   ]
+  },
+  {
+   "group": "Communities and reading",
+   "service": "Hacker News, DEV",
+   "what_we_tried": "Read the posting rules",
+   "result_key": "tos",
+   "result": "Terms ban agents",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "HN bans generated or AI-edited posts; DEV bans AI-generated articles that promote a business. We post neither.",
+   "rules": [
+    29
+   ]
+  },
+  {
+   "group": "Communities and reading",
+   "service": "Stack Exchange / Stack Overflow",
+   "what_we_tried": "Sign-up and question pages",
+   "result_key": "cloudflare",
+   "result": "Cloudflare block",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "'Just a moment' 403 for the browser, 403 for curl. The read-only API (api.stackexchange.com) still works for finding questions.",
+   "rules": [
+    55
+   ]
+  },
+  {
+   "group": "Communities and reading",
+   "service": "Medium",
+   "what_we_tried": "Read founder stories",
+   "result_key": "cloudflare",
+   "result": "Cloudflare block",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Cloudflare 403 for curl, fetch tools and the browser. Wayback Machine copies work.",
+   "rules": [
+    50
+   ]
+  },
+  {
+   "group": "Communities and reading",
+   "service": "Indie Hackers",
+   "what_we_tried": "Read product pages and sign up",
+   "result_key": "cloudflare",
+   "result": "Cloudflare block",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "curl with a named user agent gets 200, the browser gets Cloudflare 403. Terms ban crawling, so single pages only.",
+   "rules": [
+    69,
+    96
+   ]
+  },
+  {
+   "group": "Communities and reading",
+   "service": "Shopify Community",
+   "what_we_tried": "Search and read threads by curl",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Open Discourse JSON (/search.json, /t/<id>.json) at about 1 request per second. Posting is out: it bans AI-written content.",
+   "rules": [
+    88
+   ]
+  },
+  {
+   "group": "Communities and reading",
+   "service": "Modrinth",
+   "what_we_tried": "Read the content rules",
+   "result_key": "tos",
+   "result": "Terms ban agents",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Rules forbid projects that are primarily AI output, including AI icons and descriptions. We do not upload there.",
+   "rules": [
+    122
+   ]
+  },
+  {
+   "group": "Communities and reading",
+   "service": "help.shopify.com",
+   "what_we_tried": "Read help pages by curl",
+   "result_key": "cloudflare",
+   "result": "Cloudflare block",
+   "agent_alone": false,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Was 200 at 12:53 UTC, Cloudflare 403 from 16:00 UTC. changelog.shopify.com still answers.",
+   "rules": [
+    104
+   ]
+  },
+  {
+   "group": "Stores and data APIs",
+   "service": "Chrome Web Store",
+   "what_we_tried": "Search, listing and reviews pages by curl; upload API",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "Store pages render on the server, so plain HTTP reads work. The upload API cannot create a new item: the first upload is a dashboard step for a person.",
+   "rules": [
+    16,
+    100
+   ]
+  },
+  {
+   "group": "Stores and data APIs",
+   "service": "Google Workspace Marketplace",
+   "what_we_tried": "Search and listing pages by curl",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "Server-rendered, plain HTTP reads work (reviews included).",
+   "rules": [
+    5
+   ]
+  },
+  {
+   "group": "Stores and data APIs",
+   "service": "Shopify App Store",
+   "what_we_tried": "Search and listing pages by curl",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "Works, but 5 searches in 90 seconds got 429 for minutes. Space queries 60 seconds apart.",
+   "rules": [
+    23,
+    87
+   ]
+  },
+  {
+   "group": "Stores and data APIs",
+   "service": "Discord App Directory",
+   "what_we_tried": "Public search API",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "31 Oct 2026",
+   "what_worked_instead": "application-directory-static/search returns server counts and descriptions with no login.",
+   "rules": [
+    8
+   ]
+  },
+  {
+   "group": "Stores and data APIs",
+   "service": "Firefox Add-ons (AMO) API",
+   "what_we_tried": "Create a listed add-on by API",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Unlike the Chrome Web Store, the API can create a new listed add-on (once a person has an API key).",
+   "rules": [
+    110,
+    118
+   ]
+  },
+  {
+   "group": "Stores and data APIs",
+   "service": "Apify Store API",
+   "what_we_tried": "Search actors with no login",
+   "result_key": "api",
+   "result": "Works via API",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "api.apify.com/v2/store?search= answers without an account.",
+   "rules": []
+  },
+  {
+   "group": "Stores and data APIs",
+   "service": "Bing autocomplete",
+   "what_we_tried": "Query suggestions by curl",
+   "result_key": "works",
+   "result": "Works",
+   "agent_alone": true,
+   "date_tested": "1 Nov 2026",
+   "what_worked_instead": "Works. Bing and DuckDuckGo result pages by curl do not (wrong results, or a 202 challenge).",
+   "rules": [
+    69,
+    72
+   ]
+  }
+ ]
+}
